@@ -1,72 +1,49 @@
-## Voila Jones Face Detection
-The human face can be recognised in a picture using the viola-jones 
-algorithm. The system accepts either face- or non-face-based images as 
-input. 
-The training phase, during which the system detects faces, will begin 
-after taking the input photographs. Positive image sets and negative 
-picture sets are both used in the training phase. 
- Positive image sets => faces
- Negative image sets => non-faces
-All the features that are connected to the face photographs are 
-gathered during the training phase and saved in a file. 
-In the testing step, an input image is processed with all the stored 
-features and categorised as a face or not. The image is categorised as a 
-face if it meets all the criteria; else, it is classified as nonface.
+# Advanced Computer Vision Techniques
 
-### STAGE-1: Haar Feature selection
-All human faces have some characteristics in common. Haar features
-can be used to match them. The following traits are typical to human 
-faces:
- The upper-cheeks are lighter than the area around the eyes.
- The eyes are lighter than the area around the nasal bridge.
-Ingredients that combine to create face traits that can be matched:
- Position and dimensions: eyes, mouth, and nose bridge
- Value: pixel intensity gradients that are directed.
-Value = Σ (pixels in black area) - Σ (pixels in white area)
-(Difference in brightness between the white and black rectangles over a 
-specific area)
+![Computer Vision](https://img.shields.io/badge/Computer%20Vision-Advanced-red.svg)
+![Python Notebooks](https://img.shields.io/badge/Notebooks-2-green.svg)
+![Face Detection](https://img.shields.io/badge/Technique-Viola%E2%80%93Jones-blue.svg)
+![Object Detection](https://img.shields.io/badge/Technique-YOLO-yellow.svg)
 
-### STAGE-2: Integral image 
-The input image is made into an integral image in the next step of the 
-Viola-Jones face detection algorithm. The process is finished by creating 
-each new pixel in an amount equal to the sum of all pixels to its left 
-and right.
-Integral image reduces the number of values needed to compute the 
-addition of all the pixels inside any given rectangle to just 4. These 
-values are the pixels in the integral image that match the corners of the 
-rectangle in the input image.
+Welcome to the Advanced Computer Vision Techniques project repository! This project explores advanced techniques in computer vision, with a focus on face detection using the Viola–Jones algorithm and object detection using the YOLO (You Only Look Once) model.
 
-### STAGE-3: Adabost training
-The Viola Jones algorithm starts by analysing all the features in a given 
-image using a basic window size of 24x24. If we consider all Haar 
-features, then we will need to calculate more than 160,000 features in 
-each given window. 
-The main goal is to get rid of as many unnecessary and redundant 
-features as possible. Adaboost has choses only those features that are 
-extremely helpful to us and eliminate all the extra features.
-Following the establishment of these elements, a weighted sum of all 
-these features is utilised to assess and determine whether or not a 
-given window has a face. Weak classifiers are another name for these 
-features.
-Selecting the best performing feature requires analysing each feature 
-across all training samples for every new poor classifier. This is said to 
-be the training’s most time-consuming step.
+## Overview
 
-### STAGE-4: Cascade classifiers
-The cascaded classifier is collection of stages that contains a strong 
-classifier. The work of every phase is to verify whether a particular subwindow is definitely not a face or may be a face. When a sub-window is 
-classify to be a non-face by a given phase it is discarded. A sub-window 
-classified as a may be face is passed on to the next stage in the cascade
+Computer vision plays a crucial role in various applications, from facial recognition systems to autonomous vehicles. This project delves into two significant techniques:
 
-## YOLO Object Detection
+- **Viola–Jones Face Detection**: A classic method for face detection, known for its robustness and efficiency.
+- **YOLO Object Detection**: A state-of-the-art deep learning model that can detect multiple objects in an image in real-time.
 
-YOLO (You Only Look Once) object detection system uses deep learning
-algorithms to detect objects in images or videos. The system divides 
-the image into a grid and assigns each cell the task of detecting objects 
-that fall within it.
-YOLO processes the entire image at once and predicts the objects and 
-their corresponding bounding boxes in a single step
-YOLO uses a convolutional neural network (CNN) to learn features 
-from the input image. The network is trained on a large dataset of 
-annotated images.
-It works even in different lighting conditions and viewpoints.
+## Notebooks
+
+This repository contains the following Python notebooks:
+
+1. **Viola–Jones Face Detection**: Demonstrates how to perform face detection using the Viola–Jones algorithm.
+2. **YOLO Object Detection**: Illustrates how to use the YOLO model for object detection, including installation, model loading, and inference.
+
+## Usage
+
+Feel free to explore the Python notebooks provided in this repository. Each notebook includes detailed explanations and code examples for implementing the respective computer vision techniques.
+
+## Requirements
+
+To run the notebooks, you'll need:
+
+- Python 3.x
+- Jupyter Notebook or JupyterLab
+- OpenCV
+- TensorFlow or PyTorch (for YOLO object detection)
+
+## Contributing
+
+Contributions to this project are welcome! If you have ideas for improvements, additional techniques, or new notebooks, feel free to open an issue or submit a pull request.
+
+## License
+
+This project is licensed under the [MIT License](LICENSE).
+
+---
+
+If you find this project useful or interesting, consider giving it a ⭐️!
+
+[![GitHub stars](https://img.shields.io/github/stars/AviralTripathim22ma012/Advanced_Techniques_in_computer_vision.svg?style=social&label=Star)](https://github.com/AviralTripathim22ma012/Advanced_Techniques_in_computer_vision)
